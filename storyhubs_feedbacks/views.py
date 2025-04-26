@@ -2,7 +2,7 @@ from django.db.models import Count
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from storyhubs_api.permissions import IsOwnerOrReadOnly
-from .models import StoryFeedback
+from .models import StoryhubsFeedback
 from .serializers import StoryhubsFeedbackSerializer
 
 
@@ -40,6 +40,6 @@ class StoryhubsFeedbackList(generics.ListCreateAPIView):
 class StoryhubsFeedbackDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = StoryhubsFeedbackSerializer
     permission_classes = [IsOwnerOrReadOnly]
-    queryset = StoryFeedback.objects.annotate(
+    queryset = StoryhubsFeedback.objects.annotate(
         likes_count=Count('likes', distinct=True),
     ).order_by('-created_at')
