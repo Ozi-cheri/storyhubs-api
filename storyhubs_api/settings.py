@@ -55,6 +55,7 @@ INSTALLED_APPS = [
 
     'profiles',
     'storyhubs_feedbacks',
+    'likes',
 ]
 
 MIDDLEWARE = [
