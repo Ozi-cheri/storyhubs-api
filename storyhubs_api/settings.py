@@ -65,7 +65,12 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['storyhubs-api-4e038dae39bb.herokuapp.com']
+ALLOWED_HOSTS = [
+    os.environ.get('ALLOWED_HOST'),
+    '127.0.0.1',
+    'localhost',
+]
+
 
 
 
