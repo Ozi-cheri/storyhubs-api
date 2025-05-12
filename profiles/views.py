@@ -8,7 +8,9 @@ from .serializers import ProfileSerializer
 
 class ProfileList(generics.ListAPIView):
     queryset = Profile.objects.annotate(
-        storyhubs_feedbacks_count=Count('owner__storyhubsfeedback', distinct=True),
+        storyhubs_feedbacks_count=Count(
+            'owner__storyhubsfeedback', distinct=True
+        ),
         followers_count=Count('owner__followed', distinct=True),
         following_count=Count('owner__following', distinct=True)
     ).order_by('-created_at')
@@ -33,7 +35,9 @@ class ProfileList(generics.ListAPIView):
 class ProfileDetail(generics.RetrieveUpdateAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Profile.objects.annotate(
-        storyhubs_feedbacks_count=Count('owner__storyhubsfeedback', distinct=True),
+        storyhubs_feedbacks_count=Count(
+            'owner__storyhubsfeedback', distinct=True
+        ),
         followers_count=Count('owner__followed', distinct=True),
         following_count=Count('owner__following', distinct=True)
     ).order_by('-created_at')

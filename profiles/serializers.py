@@ -30,5 +30,6 @@ class ProfileSerializer(serializers.ModelSerializer):
             'id', 'owner', 'created_at', 'updated_at', 'name',
             'image', 'about_me', 'city_of_origin', 'languages_spoken',
             'story_title', 'proudest_moment', 'is_owner', 'following_id',
-            'storyhubs_feedbacks_count', 'followers_count', 'following_count',
+            'storyhubs_feedbacks_count', 'followers_count',
+            'following_count',
         ]

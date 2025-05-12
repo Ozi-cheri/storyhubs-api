@@ -2,9 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 from storyhubs_feedbacks.models import StoryhubsFeedback
 
-"""Allows users to 'like' feedback"""
 
 class Like(models.Model):
+    """
+    Allows users to 'like' feedback.
+    """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(
         StoryhubsFeedback, related_name='likes', on_delete=models.CASCADE
